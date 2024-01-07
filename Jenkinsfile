@@ -7,9 +7,9 @@ pipeline {
                 sh 'terraform init'
             }
         }
-        stage('fmt') {
+        stage('format the code') {
             steps {
-                sh 'terraform fmt'
+               sh 'terraform fmt'
             }
         }
          stage('validate') {
@@ -17,15 +17,16 @@ pipeline {
                 sh 'terraform validate'
             }
         }
-    }
-    stage('plan') {
+     stage('plan') {
             steps {
                 sh 'terraform plan'
             }
         }
-}
-stage('apply') {
+        stage('apply') {
             steps {
                 sh 'terraform apply --auto-approve'
             }
         }
+    }        
+}
+ 
